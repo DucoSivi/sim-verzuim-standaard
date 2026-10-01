@@ -1,0 +1,46 @@
+name: Publish Multi-Doc SIVI Verzuim to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install mkdocs-material
+
+      - name: Build Portal & All 3 Koppelvlak Docs
+        run: |
+          echo "=== 1. Bouw Hoofdportaal ==="
+          mkdocs build -f mkdocs.yml -d "$GITHUB_WORKSPACE/site"
+
+          echo "=== 2. Bouw Koppelvlak Werkgevers <-> Arbodiensten ==="
+          mkdocs build -f docs-werkgevers-arbodiensten/mkdocs.yml -d "$GITHUB_WORKSPACE/site/werkgevers-arbodiensten"
+
+          echo "=== 3. Bouw Koppelvlak Werkgevers <-> Verzekeraars ==="
+          mkdocs build -f docs-werkgevers-verzekeraars/mkdocs.yml -d "$GITHUB_WORKSPACE/site/werkgevers-verzekeraars"
+
+          echo "=== 4. Bouw Koppelvlak Arbodiensten <-> Verzekeraars ==="
+          mkdocs build -f docs-arbodiensten-verzekeraars/mkdocs.yml -d "$GITHUB_WORKSPACE/site/arbodiensten-verzekeraars"
+
+      - name: Deploy to GitHub Pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true

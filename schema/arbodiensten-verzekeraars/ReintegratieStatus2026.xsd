@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.sivi.org/verzuim/2026/arbodiensten-verzekeraars"
+           xmlns="http://www.sivi.org/verzuim/2026/arbodiensten-verzekeraars"
+           xmlns:basis="http://www.sivi.org/verzuim/2026/basis"
+           elementFormDefault="qualified">
+
+    <xs:element name="SIVIVerzuimBericht">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Kop">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="BerichtID" type="xs:string"/>
+                            <xs:element name="Aanmaakdatum" type="xs:dateTime"/>
+                            <xs:element name="Domein" type="xs:string"/>
+                            <xs:element name="AfzenderID" type="xs:string"/>
+                            <xs:element name="OntvangerID" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Inhoud">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="WerkgeverID" type="xs:string"/>
+                            <xs:element name="WerknemerID" type="xs:string"/>
+                            <xs:element name="Transactiedatum" type="xs:date"/>
+                            <xs:element name="Status" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="versie" type="xs:string" fixed="2026.1"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

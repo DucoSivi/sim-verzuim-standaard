@@ -1,0 +1,77 @@
+site_name: "SIVI Verzuim: Arbodiensten ↔ Verzekeraars"
+site_description: "Specificatie en documentatie voor gegevensuitwisseling tussen Arbodiensten en Inkomensverzekeraars."
+site_author: "SIVI"
+site_url: "https://ducosivi.github.io/sim-verzuim-standaard/arbodiensten-verzekeraars/"
+
+theme:
+  name: material
+  language: nl
+  logo: assets/sivi-logo.png
+  favicon: assets/sivi-logo.png
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Donkere modus
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Lichte modus
+  font:
+    text: Source Sans Pro
+    code: Source Code Pro
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/sivi.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/solid/house
+      link: "https://ducosivi.github.io/sim-verzuim-standaard/"
+      name: "Terug naar SIVI Verzuim Portaal"
+    - icon: fontawesome/brands/github
+      link: "https://github.com/DucoSivi/sim-verzuim-standaard"
+      name: GitHub Repository
+    - icon: fontawesome/solid/globe
+      link: "https://www.sivi.org"
+      name: SIVI.org
+
+copyright: "&copy; SIVI &mdash; Kennis- en standaardisatie-instituut voor de financi&euml;le dienstverlening"
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - footnotes
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - toc:
+      permalink: false
+      toc_depth: 3
+
+nav:
+  - "← Portaal": "https://ducosivi.github.io/sim-verzuim-standaard/"
+  - "Inleiding & Doel": index.md
+  - "Bedrijfsprocessen": processen.md
+  - "Berichtspecificatie": berichten.md
+  - "Codelijsten": codelijsten.md
+  - "Implementatie": implementatie.md

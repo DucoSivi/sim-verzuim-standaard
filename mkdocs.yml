@@ -1,0 +1,72 @@
+site_name: "SIVI Verzuimstandaard &mdash; Integraal Portaal"
+site_description: "Centrale specificatie en documentatie van de SIVI Verzuimstandaard (Model A: 1 repository, 3 koppelvlak-documentaties)."
+site_author: "SIVI"
+site_url: "https://ducosivi.github.io/sim-verzuim-standaard/"
+
+theme:
+  name: material
+  language: nl
+  logo: assets/sivi-logo.png
+  favicon: assets/sivi-logo.png
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Donkere modus
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Lichte modus
+  font:
+    text: Source Sans Pro
+    code: Source Code Pro
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/sivi.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: "https://github.com/DucoSivi/sim-verzuim-standaard"
+      name: GitHub Repository
+    - icon: fontawesome/solid/globe
+      link: "https://www.sivi.org"
+      name: SIVI.org
+
+copyright: "&copy; SIVI &mdash; Kennis- en standaardisatie-instituut voor de financi&euml;le dienstverlening"
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - footnotes
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - toc:
+      permalink: false
+      toc_depth: 3
+
+nav:
+  - "Portaal & Overzicht": index.md
+  - "De Drie Koppelvlakken": koppelvlakken.md
+  - "Gemeenschappelijk Datamodel": datamodel.md
+  - "Release- & Wijzigingsbeheer": releasebeheer.md

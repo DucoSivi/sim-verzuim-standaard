@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SIVIVerzuimBericht xmlns="http://www.sivi.org/verzuim/2026/arbodiensten-verzekeraars"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   versie="2026.1">
+    <Kop>
+        <BerichtID>MSG-20261001-0001</BerichtID>
+        <Aanmaakdatum>2026-10-01T09:30:00</Aanmaakdatum>
+        <Domein>arbodiensten-verzekeraars</Domein>
+        <AfzenderID>AFZ-12345</AfzenderID>
+        <OntvangerID>ONT-67890</OntvangerID>
+    </Kop>
+    <Inhoud>
+        <WerkgeverID>NL-KVK-12345678</WerkgeverID>
+        <WerknemerID>EMP-987654</WerknemerID>
+        <Transactiedatum>2026-10-01</Transactiedatum>
+        <Status>Actief</Status>
+    </Inhoud>
+</SIVIVerzuimBericht>
