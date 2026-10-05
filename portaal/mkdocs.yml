@@ -1,0 +1,69 @@
+site_name: "SIVI Verzuimstandaard"
+site_description: "Centrale ingang voor documentatie, vragen, wijzigingsverzoeken en discussies over de Verzuimstandaard (simulatie)."
+site_author: "SIVI"
+site_url: "https://ducosivi.github.io/sim-verzuim-standaard/"
+repo_url: "https://github.com/DucoSivi/sim-verzuim-standaard"
+repo_name: "sim-verzuim-standaard"
+edit_uri: ""
+
+theme:
+  name: material
+  language: nl
+  logo: assets/sivi-logo.png
+  favicon: assets/sivi-logo.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Donkere modus
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Lichte modus
+  font:
+    text: Source Sans Pro
+    code: Source Code Pro
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/sivi.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: "https://github.com/DucoSivi/sim-verzuim-standaard"
+      name: Centrale ingang op GitHub
+    - icon: fontawesome/solid/globe
+      link: "https://www.sivi.org/verzuim/"
+      name: Verzuim op sivi.org
+
+copyright: "Simulatie &mdash; inhoud: officiële publicaties van SIVI (sivi.org)"
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: false
+      toc_depth: 3

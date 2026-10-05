@@ -1,0 +1,49 @@
+name: Wijzigingsverzoek
+description: Stel een wijziging in de Verzuimstandaard voor
+title: "Wijzigingsverzoek: "
+labels: ["wijzigingsverzoek"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Wijzigingsverzoeken worden per koppelvlak besproken in de werkgroep en, als ze worden aangenomen, meegenomen in een volgende jaarlijkse release.
+  - type: dropdown
+    id: koppelvlak
+    attributes:
+      label: Koppelvlak
+      options:
+        - Werkgevers ↔ Arbodiensten
+        - Werkgevers ↔ Verzekeraars
+        - Arbodiensten ↔ Verzekeraars
+        - Algemeen of meerdere koppelvlakken
+    validations:
+      required: true
+  - type: input
+    id: bericht
+    attributes:
+      label: Bericht en element
+      description: Welk bericht en welk element (xml-tag) wil je wijzigen? Bijvoorbeeld Dienstverbanden / Dnstvbnd.
+    validations:
+      required: true
+  - type: textarea
+    id: wijziging
+    attributes:
+      label: Wat wil je veranderen?
+      description: Beschrijf de gewenste situatie. Een voorbeeldbericht helpt.
+    validations:
+      required: true
+  - type: textarea
+    id: waarom
+    attributes:
+      label: Waarom?
+      description: Welk probleem lost dit op, en voor wie?
+    validations:
+      required: true
+  - type: dropdown
+    id: gewenste-release
+    attributes:
+      label: Gewenste release
+      options:
+        - "2027"
+        - "2028"
+        - Geen voorkeur

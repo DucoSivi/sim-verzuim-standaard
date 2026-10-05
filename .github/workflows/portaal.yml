@@ -1,0 +1,49 @@
+name: Portaal bouwen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * *"
+  repository_dispatch:
+    types: [release-gepubliceerd]
+
+permissions:
+  contents: write
+
+jobs:
+  bouw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Koppelvlakrepositories ophalen
+        run: |
+          for kv in werkgevers-arbodiensten werkgevers-verzekeraars arbodiensten-verzekeraars; do
+            git clone --quiet "https://github.com/${{ github.repository_owner }}/sim-verzuim-$kv.git" "kv/sim-verzuim-$kv"
+          done
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: MkDocs installeren
+        run: pip install mkdocs-material
+
+      - name: Portaalpagina's maken uit de koppelvlakrepositories
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EIGENAAR: ${{ github.repository_owner }}
+        run: python portaal/bouw_portaal.py kv portaal
+
+      - name: Site bouwen
+        run: mkdocs build --strict -f portaal/mkdocs.gen.yml -d "$GITHUB_WORKSPACE/site"
+
+      - name: Publiceren op GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true

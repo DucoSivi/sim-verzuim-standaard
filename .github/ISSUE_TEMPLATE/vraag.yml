@@ -1,0 +1,33 @@
+name: Vraag
+description: Stel een vraag over de Verzuimstandaard
+title: "Vraag: "
+labels: ["vraag"]
+body:
+  - type: dropdown
+    id: koppelvlak
+    attributes:
+      label: Koppelvlak
+      description: Over welk koppelvlak gaat je vraag?
+      options:
+        - Werkgevers ↔ Arbodiensten
+        - Werkgevers ↔ Verzekeraars
+        - Arbodiensten ↔ Verzekeraars
+        - Algemeen of meerdere koppelvlakken
+    validations:
+      required: true
+  - type: input
+    id: release
+    attributes:
+      label: Release
+      description: Over welke release gaat het? Bijvoorbeeld 2026.
+  - type: input
+    id: bericht
+    attributes:
+      label: Bericht of element
+      description: Bijvoorbeeld Dienstverbanden of de xml-tag Dnstvbnd (mag leeg blijven).
+  - type: textarea
+    id: vraag
+    attributes:
+      label: Je vraag
+    validations:
+      required: true

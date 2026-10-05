@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussies
+    url: https://github.com/DucoSivi/sim-verzuim-standaard/discussions
+    about: Voor overleg dat niet in een vraag of wijzigingsverzoek past.
+  - name: Releases Werkgevers ↔ Arbodiensten
+    url: https://github.com/DucoSivi/sim-verzuim-werkgevers-arbodiensten/releases
+    about: Officiële bestanden en schema's per jaar.
+  - name: Releases Werkgevers ↔ Verzekeraars
+    url: https://github.com/DucoSivi/sim-verzuim-werkgevers-verzekeraars/releases
+    about: Officiële bestanden en schema's per jaar.
+  - name: Releases Arbodiensten ↔ Verzekeraars
+    url: https://github.com/DucoSivi/sim-verzuim-arbodiensten-verzekeraars/releases
+    about: Officiële bestanden en schema's per jaar.

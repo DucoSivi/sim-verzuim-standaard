@@ -1,0 +1,27 @@
+name: Label per koppelvlak
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const tekst = context.payload.issue.body || "";
+            const m = tekst.match(/### Koppelvlak\s+([^\n]+)/);
+            if (!m) return;
+            const koppelvlak = m[1].trim();
+            const bekend = ["Werkgevers ↔ Arbodiensten", "Werkgevers ↔ Verzekeraars", "Arbodiensten ↔ Verzekeraars"];
+            if (!bekend.includes(koppelvlak)) return;
+            await github.rest.issues.addLabels({
+              ...context.repo,
+              issue_number: context.issue.number,
+              labels: [koppelvlak],
+            });
