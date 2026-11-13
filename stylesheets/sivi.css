@@ -1,0 +1,332 @@
+/* SIVI Huisstijl — MkDocs Material overrides */
+/* Kleuren geextraheerd van sivi.org (2026-06-11) */
+
+:root {
+  /* SIVI kleurenpalet */
+  --sivi-geel: #FFDA09;
+  --sivi-teal: #3E8080;
+  --sivi-teal-donker: #2D5E5E;
+  --sivi-blauw: #274F77;
+  --sivi-groen: #61A229;
+  --sivi-licht-teal: #E7F2EE;
+  --sivi-grijs: #EEEEEE;
+}
+
+/* Header — wit met donker logo (zoals sivi.org) */
+[data-md-color-scheme="default"] .md-header {
+  background-color: #FFFFFF;
+  color: var(--sivi-teal-donker);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+[data-md-color-scheme="default"] .md-header .md-header__title {
+  color: var(--sivi-teal-donker);
+}
+
+[data-md-color-scheme="default"] .md-header .md-header__button {
+  color: var(--sivi-teal-donker);
+}
+
+[data-md-color-scheme="default"] .md-search__form {
+  background-color: var(--sivi-licht-teal);
+}
+
+[data-md-color-scheme="default"] .md-header::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background-color: var(--sivi-geel);
+}
+
+/* Tabs en navigatie */
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: var(--sivi-teal);
+}
+
+/* Links */
+[data-md-color-scheme="default"] .md-content a {
+  color: var(--sivi-blauw);
+}
+
+[data-md-color-scheme="default"] .md-content a:hover {
+  color: var(--sivi-teal);
+}
+
+/* Koppen */
+[data-md-color-scheme="default"] .md-content h1 {
+  color: var(--sivi-teal-donker);
+  border-bottom: 3px solid var(--sivi-geel);
+  padding-bottom: 0.3em;
+}
+
+[data-md-color-scheme="default"] .md-content h2 {
+  color: var(--sivi-teal);
+}
+
+[data-md-color-scheme="default"] .md-content h3 {
+  color: var(--sivi-blauw);
+}
+
+/* Zoekbalk accent */
+[data-md-color-scheme="default"] .md-search__form {
+  border-bottom: 2px solid var(--sivi-geel);
+}
+
+/* Sidebar navigatie — actief item */
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: var(--sivi-teal) !important;
+  font-weight: 600;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: var(--sivi-blauw);
+}
+
+/* Tabellen — stijl via vbpuo-tabellen.css (extra_css, geladen na sivi.css) */
+
+/* Responsieve tabellen — de MkDocs-wrapper beperkt de breedte niet vanzelf */
+/* display:table overschrijft de inline-block van Material zodat de tabel zijn eigen breedte bepaalt */
+.md-typeset__table {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset__table table:not([class]) {
+  display: table !important;
+}
+
+/* Footer */
+[data-md-color-scheme="default"] .md-footer {
+  background-color: var(--sivi-teal-donker);
+}
+
+/* Code blokken */
+[data-md-color-scheme="default"] .md-typeset code {
+  background-color: var(--sivi-licht-teal);
+  color: var(--sivi-teal-donker);
+}
+
+/* Admonitions (info-blokken) — SIVI kleuren */
+[data-md-color-scheme="default"] .md-typeset .admonition.note,
+[data-md-color-scheme="default"] .md-typeset details.note {
+  border-color: var(--sivi-teal);
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.tip,
+[data-md-color-scheme="default"] .md-typeset details.tip {
+  border-color: var(--sivi-groen);
+}
+
+[data-md-color-scheme="default"] .md-typeset .admonition.warning,
+[data-md-color-scheme="default"] .md-typeset details.warning {
+  border-color: var(--sivi-geel);
+}
+
+/* Dark mode — slate scheme (minimale overrides) */
+[data-md-color-scheme="slate"] .md-header {
+  background-color: #1a3a3a;
+}
+
+[data-md-color-scheme="slate"] .md-header::after {
+  content: "";
+  display: block;
+  height: 4px;
+  background-color: var(--sivi-geel);
+}
+
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: #1a3a3a;
+}
+
+[data-md-color-scheme="slate"] .md-content h1 {
+  border-bottom: 3px solid var(--sivi-geel);
+  padding-bottom: 0.3em;
+}
+
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #1a3a3a;
+}
+
+/* ===== PRINT PAGE — SIVI branded PDF output ===== */
+/* Structuur: #print-site-page > #print-site-cover-page + .print-page secties */
+
+#print-site-page {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* Cover page — gecentreerd met SIVI logo */
+#print-site-cover-page {
+  text-align: center;
+  padding: 40px 40px 30px;
+  border-bottom: 4px solid var(--sivi-geel);
+  margin-bottom: 40px;
+  page-break-after: always;
+}
+
+/* Cover titel — groot, geen onderstreep */
+#print-site-cover-page h1 {
+  color: var(--sivi-teal-donker) !important;
+  font-size: 2.4em !important;
+  border-bottom: none !important;
+  margin-bottom: 10px;
+  padding-bottom: 0 !important;
+}
+
+/* Cover metadata-tabel */
+#print-site-cover-page table {
+  margin: 30px auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+#print-site-cover-page table td:first-child {
+  font-weight: 600;
+  color: var(--sivi-teal-donker);
+  min-width: 120px;
+}
+
+/* Hoofdstuk-scheiding op print page */
+.print-page h1 {
+  page-break-before: always;
+  color: var(--sivi-teal-donker);
+  border-bottom: 3px solid var(--sivi-geel);
+  padding-bottom: 0.3em;
+  padding-top: 20px;
+}
+
+#print-site-cover-page + .print-page h1,
+#print-site-cover-page + .print-page + .print-page h1 {
+  page-break-before: avoid;
+}
+
+/* Verberg lege TOC-sectie volledig (plugin genereert wrapper + titel zonder links) */
+#print-page-toc {
+  display: none;
+}
+
+#print-site-cover-page + .print-page {
+  display: none !important;
+  page-break-before: avoid !important;
+  page-break-after: avoid !important;
+}
+
+/* Verberg datum/titel/figuur op print-page (staat al op cover) */
+#print-site-page .print-verberg {
+  display: none !important;
+}
+
+/* Inhoudsopgave op eigen pagina — visuele scheiding + page-break */
+#print-site-page .print-pagina-breuk {
+  margin-top: 60px;
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--sivi-geel);
+  page-break-before: always;
+}
+
+.print-page h2 {
+  color: var(--sivi-teal);
+}
+
+.print-page h3 {
+  color: var(--sivi-blauw);
+}
+
+/* Tabellen in print — kleuren via vbpuo-tabellen.css */
+.print-page table th {
+  background-color: var(--vbt-geel) !important;
+  color: var(--vbt-tekst-donker) !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.print-page table tr:nth-child(even) td {
+  background-color: #FAFAFA !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== @media print — PDF-specifieke regels ===== */
+@media print {
+  @page {
+    margin: 2cm 1.5cm;
+  }
+
+  /* Forceer kleuren in print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Verberg navigatie */
+  .md-header,
+  .md-footer,
+  .md-sidebar,
+  .md-tabs {
+    display: none !important;
+  }
+
+  /* Cover page compacter zodat alles op 1 pagina past */
+  #print-site-cover-page {
+    padding: 20px 20px 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  #print-site-cover-page img:first-child {
+    margin-bottom: 15px !important;
+  }
+
+  #print-site-cover-page h1 {
+    font-size: 1.8em !important;
+    margin-bottom: 5px !important;
+  }
+
+  #print-site-cover-page p {
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+  }
+
+  #print-site-cover-page img[alt="Data exchange"] {
+    width: 140px !important;
+    margin: 15px auto 5px !important;
+  }
+
+  #print-site-cover-page table {
+    margin: 15px auto !important;
+  }
+
+  #print-site-cover-page hr {
+    margin: 20px 80px !important;
+  }
+
+  /* Verberg datum/titel/figuur die al op de cover staan */
+  .print-verberg {
+    display: none !important;
+  }
+
+  /* Cover page: logo ook in print zichtbaar */
+  #print-site-cover-page > div:first-child::before {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Material-theme logo verbergen op cover page (template heeft eigen logo) */
+#print-site-cover-page .md-logo,
+#print-site-cover-page > .md-logo,
+#print-site-cover-page .md-header__button.md-logo {
+  display: none !important;
+}
+
+/* Cover page logo centreren als blok-element */
+#print-site-cover-page img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Cover page H1 als blok-element centreren */
+#print-site-cover-page h1 {
+  display: block !important;
+  text-align: center;
+}
